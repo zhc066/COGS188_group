@@ -7,7 +7,7 @@
 We propose to compare a greedy baseline, simulated annealing, and a genetic algorithm for scheduling university courses under resource and availability constraints.
 
 - [Project proposal](Proposal_Project_Chen_Wang_Merino.ipynb)
-- [Final report template](FinalProject_YourGroupNameHere.ipynb)
+- [Final report (template, to be completed)](FinalProject_Chen_Wang_Merino.ipynb)
 
 The proposal describes planned work and is subject to instructor feedback. Implementation and experimental results will be added as the project progresses. The unused special-topics proposal template has been removed because this group is pursuing an implementation project.
 
