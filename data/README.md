@@ -15,15 +15,19 @@ Record the quarter, file names, access dates, record counts, and reuse terms bef
 
 - Use one well-documented fall, winter, or spring quarter and a declared set of departments. Avoid Spring 2022, whose documented schema lacks enrollment counts.
 - Use one observation per term and section: the latest snapshot on or before a common reference date near the start of instruction. Report its age and missing coverage. Repeated collection timestamps are not independent classes.
-- Keep lecture meetings only (`LE`); drop discussions (`DI`), finals (`FI`), and other meeting codes, so lecture and discussion enrollments are not counted twice.
-- Meetings per week come from the lecture day pattern (e.g., `TuTh` = 2, `MWF` = 3). Clock times and durations are not used.
+- Keep lecture meetings only (`LE`); drop discussions (`DI`), finals (`FI`), and other meeting codes.
+- Each schedule row is a section (e.g., `COGS 100 A01`, `A02`, `A03`) and sections of one lecture repeat the same `LE` meeting. Merge rows with the same course and identical `LE` meetings into one lecture; its class size is the combined enrolled count of those sections, so discussion sections are not counted as separate courses.
+- Meetings per week come from the lecture day pattern (e.g., `TuTh` = 2, `MWF` = 3). Keep lectures that meet two or three days per week; drop one-day, TBA/date-only, and four-plus-day patterns. Clock times and durations are not used.
+- Fall 2025 reference counts (`FA25.tsv`): 6,502 section rows, 1,519 distinct lectures, of which 789 meet two days and 377 three days (77%); lecture seat totals have median 50, 90th percentile 196, 99th percentile 384, and 8 entries at or above `9999`; 126 lectures list `Staff`.
 - Inspect missing values, zero enrollments, unusually large limits such as `9999`, and enrollment above the reported limit; document every exclusion.
 - Use enrolled counts for demand; do not infer enrollment from `available`. `total` / `total_seats` is a registration limit, not a physical room capacity.
 - Do not merge `Staff` entries into one shared instructor; handle multiple-instructor records explicitly before deriving teaching loads.
 
 ## Classroom preparation
 
-- Normalize room identifiers and remove duplicates; keep active, relevant teaching rooms.
+- Normalize room identifiers and remove duplicates; keep active, relevant teaching rooms and drop rooms listed with capacity 0.
+- Reference counts (accessed November 2026): 141 Registrar-controlled rooms (97 classrooms, 39 lecture halls, 4 assembly rooms, 1 class laboratory); capacity median 50, 90th percentile 245, maximum 500.
+- Drop lectures larger than the largest room. When sampling an instance's room inventory, resample until every course fits at least one room and report the resampling rate.
 - The inventory may describe a different date from the enrollment quarter, so the combined data describe hypothetical scenarios.
 - The inventory does not establish room availability; experiments assume every sampled room is available in every period. The same assumption applies to every method.
 
